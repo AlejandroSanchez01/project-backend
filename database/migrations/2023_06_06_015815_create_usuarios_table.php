@@ -15,9 +15,9 @@ return new class extends Migration
             $table->increments("id");
             $table->string("name");
             $table->string("last_name");
-            $table->enum('id_type',['cedula de ciudadania','cedula de extranjeria','Pasaporte','Registro','Tarjeta de identidad']);
-            $table->integer("id_card");
-            $table->integer("phone");
+            $table->enum('id_type',['cedula de ciudadania','cedula de extranjeria','Pasaporte','Tarjeta de identidad']);
+            $table->string("id_card");
+            $table->string("phone");
             $table->string("email");
             $table->string("profession");
             $table->enum('role',['admin','viewer','executor','guest']);

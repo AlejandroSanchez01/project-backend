@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\Api\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,22 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::get("/usuario/read",[UsuarioController::class,'read']); 
+//parámetro como parte de la URL
+//Route::get("/usuario/read_user/{id}",[UsuarioController::class,'read_user']); 
+
+//parámetro de consulta (query parameter)
+Route::get("/usuario/read_user",[UsuarioController::class,'read_user']); 
+
+Route::post("/usuario/create",[UsuarioController::class,'create']); 
+
+
+Route::delete("/usuario/delete",[UsuarioController::class,'delete']); 
+
+Route::put("/usuario/update",[UsuarioController::class,'update']); 
+
+
 
 Route::get("/saludo",function (Request $request) {
         $message = ["message" => "Hola mundo!"];
