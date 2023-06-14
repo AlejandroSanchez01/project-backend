@@ -25,7 +25,8 @@ class UsuarioController extends Controller
                 'phone' => 'required',
                 'email' => 'required',
                 'profession' => 'required',
-                'role' => 'required'
+                'role' => 'required',
+                'message' => 'nullable'
             ]);
     
             $usuario = new Usuario();
@@ -37,10 +38,12 @@ class UsuarioController extends Controller
             $usuario->email = $request->input("email");
             $usuario->profession  = $request->input("profession");
             $usuario->role  = $request->input("role");
+            $usuario->message = $request->input("message");
             $usuario->save();
+
     
             $message = ["message" => "Registro Exitoso!"];
-            return response()->json($message);
+            return response()->json($message,201);
         } catch (ValidationException $e) {
             $errorMessage = $e->getMessage();
             return response()->json(["error" => $errorMessage], 422);
@@ -137,6 +140,9 @@ class UsuarioController extends Controller
     
             if ($request->filled("role")) {
                 $usuario_update->role = $request->input("role");
+            }
+            if ($request->filled("message")) {
+                $usuario_update->message = $request->input("message");
             }
     
             $usuario_update->save();

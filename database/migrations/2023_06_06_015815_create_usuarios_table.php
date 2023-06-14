@@ -15,12 +15,13 @@ return new class extends Migration
             $table->increments("id");
             $table->string("name");
             $table->string("last_name");
-            $table->enum('id_type',['cedula de ciudadania','cedula de extranjeria','Pasaporte','Tarjeta de identidad']);
+            $table->enum('id_type',['Cédula de ciudadanía','Cédula de extranjería','Pasaporte','Tarjeta de identidad']);
             $table->string("id_card");
             $table->string("phone");
             $table->string("email");
             $table->string("profession");
-            $table->enum('role',['admin','viewer','executor','guest']);
+            $table->enum('role',['Administrador','Espectador','Ejecutor','Invitado']);
+            $table->string("message")->nullable();
             $table->timestamps();
         });
     }
